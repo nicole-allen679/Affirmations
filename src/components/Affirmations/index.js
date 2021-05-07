@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import CardColumns from 'react-bootstrap/CardGroup'
 import AffirmationCard from './AffirmationCard'
-import 'bootstrap/dist/css/bootstrap.min.css'
 
 function Affirmations() {
-  const [affirmationsList, setAffirmationsList] = useState(null)
+  // const [affirmationsList, setAffirmationsList] = useState(null)
   useEffect(() => {
     fetch('https://affirm-bc-api.web.app/affirmations')
       .then((response) => response.json())
@@ -13,7 +12,8 @@ function Affirmations() {
   }, [])
   return (
     <CardColumns>
-      {!affirmationsList ? (<h2>Loading...</h2>
+      {!affirmationsList ? (
+        <h2>Loading...</h2>
       ) : (
         affirmationsList.map((one) => {
           return <AffirmationCard affirmation={one} />
