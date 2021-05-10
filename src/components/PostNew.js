@@ -1,10 +1,11 @@
 import React, { useState, useContext } from 'react'
 import Modal from 'react-bootstrap/Modal'
-import { UserAuthContext } from '../App'
+import { UserAuthContext, AffirmationsContext } from '../App'
 
 function PostNew(props) {
   const [newText, setNewText] = useState('')
   const { user } = useContext(UserAuthContext)
+  const { setAffirmationsList } = useContext(AffirmationsContext)
   const handlePost = () => {
     const newAffirmation = {
       text: newText,
@@ -23,7 +24,7 @@ function PostNew(props) {
       .then((data) => {
         setNewText('')
         props.onHide()
-        console.log(data)
+        setAffirmationsList(data)
       })
       .catch((err) => console.log(err))
   }
@@ -42,7 +43,7 @@ function PostNew(props) {
         ></textarea>
       </Modal.Body>
       <Modal.Footer>
-        <button onClick={() => handlePost}>Post</button>
+        <button onClick={() => handlePost()}>Post</button>
       </Modal.Footer>
     </Modal>
   )

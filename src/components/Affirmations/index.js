@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import CardColumns from 'react-bootstrap/CardGroup'
+import React, { useContext, useEffect } from 'react'
+import CardColumns from 'react-bootstrap/CardColumns'
 import AffirmationCard from './AffirmationCard'
+import { AffirmationsContext } from '../../App'
 
 function Affirmations() {
-  // const [affirmationsList, setAffirmationsList] = useState(null)
+  const {affirmationsList, setAffirmationsList} = useContext(AffirmationsContext)
   useEffect(() => {
     fetch('https://affirm-bc-api.web.app/affirmations')
       .then((response) => response.json())

@@ -1,5 +1,7 @@
 body {
   background-image: url('https://images.unsplash.com/photo-1559825481-12a05cc00344?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80');
+  background-repeat: no-repeat;
+  background-size: cover;
   font-family: 'Satisfy', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -25,10 +27,9 @@ body {
   min-height: 50vh;
   display: flex;
   flex-direction: column;
+  text-transform: uppercase;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
@@ -52,4 +53,9 @@ body {
 .login {
   width: 50px;
   height: auto;
+}
+
+.googleImg {
+  height: 60px;
+  width: auto;
 }
