@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import firebase from 'firebase'
 import { UserAuthContext } from '../App'
 
@@ -13,10 +13,13 @@ firebase.initializeApp({
 
 function LoginButton() {
   const { user, setUser } = useContext(UserAuthContext)
-  // const [user, setUser] = useState(null)
+  useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem("user")))
+  }, [])
   const clickHandler = () => {
     if (user) {
       setUser(null)
+      localStorage.removeItem("user")
     } else {
       const provider = new firebase.auth.GoogleAuthProvider()
       firebase
