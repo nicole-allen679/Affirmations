@@ -13,13 +13,15 @@ function App() {
   const [user, setUser] = useState(null)
   const [affirmationsList, setAffirmationsList] = useState(null)
   return (
-    <AffirmationsContext.Provider value={{ affirmationsList, setAffirmationsList }}>
-    <UserAuthContext.Provider value={{ user, setUser }}>
-      <Header />
-      <Container>
-        <Affirmations />
-      </Container>
-    </UserAuthContext.Provider>
+    <AffirmationsContext.Provider
+      value={{ affirmationsList, setAffirmationsList }}
+    >
+      <UserAuthContext.Provider value={{ user, setUser }}>
+        <Header />
+        <Container>
+          <Affirmations />
+        </Container>
+      </UserAuthContext.Provider>
     </AffirmationsContext.Provider>
   )
 }

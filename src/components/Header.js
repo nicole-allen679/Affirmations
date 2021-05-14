@@ -9,22 +9,26 @@ function Header() {
   const { user } = useContext(UserAuthContext)
   const [showModal, setShowModal] = useState(false)
   return (
-      <>
-    <Navbar className="justify-content-between">
-      <Navbar.Brand>Affirmations</Navbar.Brand>
-      <Nav>
-        {user && (
-          <button onClick={() => setShowModal(true)}>
-            <img className="add-button" src="../../favicon.png" alt="add new" />
-          </button>
-        )}
-        &nbsp;
-        <Nav.Link>
-          <LoginButton />{' '}
-        </Nav.Link>
-      </Nav>
-    </Navbar>
-    <PostNew show={showModal} onHide={() => setShowModal(false)}></PostNew>
+    <>
+      <Navbar className="navBar">
+        <Navbar.Brand className="navBar__title">Affirmations</Navbar.Brand>
+        <Nav>
+          {user && (
+            <button onClick={() => setShowModal(true)}>
+              <img
+                className="add-button"
+                src="../../favicon.png"
+                alt="add new"
+              />
+            </button>
+          )}
+          &nbsp;
+          <Nav.Link>
+            <LoginButton />{' '}
+          </Nav.Link>
+        </Nav>
+      </Navbar>
+      <PostNew show={showModal} onHide={() => setShowModal(false)}></PostNew>
     </>
   )
 }
